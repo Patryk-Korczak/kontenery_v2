@@ -1,0 +1,53 @@
+{
+  "name": "kontenery",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/kontenery/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/kontenery",
+        "main": "apps/kontenery/src/main.ts",
+        "tsConfig": "apps/kontenery/tsconfig.app.json",
+        "assets": ["apps/kontenery/src/assets"],
+        "webpackConfig": "apps/kontenery/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "kontenery:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "kontenery:build:development"
+        },
+        "production": {
+          "buildTarget": "kontenery:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/kontenery/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
