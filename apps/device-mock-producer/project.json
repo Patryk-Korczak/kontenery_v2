@@ -1,0 +1,67 @@
+{
+  "name": "device-mock-producer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/device-mock-producer/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/device-mock-producer",
+        "format": ["cjs"],
+        "bundle": true,
+        "main": "apps/device-mock-producer/src/main.ts",
+        "tsConfig": "apps/device-mock-producer/tsconfig.app.json",
+        "assets": ["apps/device-mock-producer/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "device-mock-producer:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "device-mock-producer:build:development"
+        },
+        "production": {
+          "buildTarget": "device-mock-producer:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/device-mock-producer/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
