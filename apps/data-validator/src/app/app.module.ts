@@ -12,7 +12,7 @@ import {ClientsModule, Transport} from '@nestjs/microservices';
       options: {
         client: {
           clientId: 'data-validator',
-          brokers: ['localhost:9011'],
+          brokers: ['kafka:9011'],
         },
         producer: {
           allowAutoTopicCreation: true,

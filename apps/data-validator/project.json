@@ -14,8 +14,9 @@
         "outputPath": "dist/apps/data-validator",
         "main": "apps/data-validator/src/main.ts",
         "tsConfig": "apps/data-validator/tsconfig.app.json",
-        "assets": ["apps/data-validator/src/assets"],
-        "webpackConfig": "apps/data-validator/webpack.config.js"
+        "assets": ["apps/data-validator/src/Dockerfile"],
+        "webpackConfig": "apps/data-validator/webpack.config.js",
+        "generatePackageJson": true
       },
       "configurations": {
         "development": {},

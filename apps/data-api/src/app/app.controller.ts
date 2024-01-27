@@ -14,9 +14,6 @@ export class AppController {
 
   @Get(`series`)
   async getSeries() {
-    /**
-     * @author ChatGPT
-     */
     function transformForHighcharts(data) {
       const seriesData = {};
 
@@ -53,8 +50,4 @@ export class AppController {
     return (data);
   }
 
-  // @Get('/v1/device')
-  // async getDevices(@Payload() message: DataEvent) {
-  //   return await this.dataModel.
-  // }
 }

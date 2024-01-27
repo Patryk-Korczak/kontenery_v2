@@ -20,7 +20,7 @@ async function run() {
         {
           value: JSON.stringify({
             payload: -1,
-            deviceId: `dev--device__${(Math.random()*3).toFixed(0)}`,
+            deviceId: `dev--device__${(Math.random()*10).toFixed(0)}`,
             timestamp: new Date().toUTCString()
           })
         },
@@ -46,9 +46,9 @@ async function run() {
         {
           value: JSON.stringify({
             payload: +(Math.random()*100).toFixed(2),
-            deviceId: `dev--device__${(Math.random()*3).toFixed(0)}`,
+            deviceId: `dev--device__${(Math.random()*10).toFixed(0)}`,
             timestamp: new Date().toUTCString()
-            
+
           })
         },
       ],

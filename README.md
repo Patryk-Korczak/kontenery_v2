@@ -19,6 +19,7 @@ nx run-many --target=serve --all --maxParallel=24
 ## Build all applications
 ```bash
 nx run-many --target=build --all --maxParallel=24
+docker-compose up -d --build
 ```
 
 

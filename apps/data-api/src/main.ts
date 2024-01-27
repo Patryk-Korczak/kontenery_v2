@@ -12,7 +12,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {});
   app.enableCors();
   await app.init();
-  await app.listen(80);
+  await app.listen(8081);
 }
 
 bootstrap();

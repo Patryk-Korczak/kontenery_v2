@@ -6,7 +6,7 @@ import { Data, DataSchema } from './data.schema';
 
 @Module({
   imports:[
-    MongooseModule.forRoot('mongodb://localhost/data'),
+    MongooseModule.forRoot('mongodb://device-db/data'),
     MongooseModule.forFeature([{ name: Data.name, schema: DataSchema }]),
   ],
   controllers: [AppController],

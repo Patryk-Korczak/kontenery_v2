@@ -19,7 +19,7 @@ export const databaseProviders = [
   imports:[
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'data-db',
       port: 5432,
       username: 'postgres',
       password: 'postgres',
@@ -31,7 +31,7 @@ export const databaseProviders = [
       entities: [Entry],
     }),
     TypeOrmModule.forFeature([Entry]),
-    MongooseModule.forRoot('mongodb://localhost/data'),
+    MongooseModule.forRoot('mongodb://device-db/data'),
     MongooseModule.forFeature([{ name: Data.name, schema: DataSchema }]),
   ],
   controllers: [AppController],

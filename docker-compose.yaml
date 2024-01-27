@@ -5,7 +5,28 @@ services:
     build:
       context: dist/apps/device-mock-producer
     environment:
-      - SLEEP_TIME=10
+      - SLEEP_TIME=1
+
+  dashboard:
+    ports:
+      - "80:80"
+    build:
+      context: dist/apps/dashboard
+
+  data-validator:
+    build:
+      context: dist/apps/data-validator
+
+  data-processor:
+    build:
+      context: dist/apps/data-processor
+
+  data-api:
+    ports:
+      - "8081:8081"
+    build:
+      context: dist/apps/data-api
+
   kafka:
     image: docker.io/bitnami/kafka:3.5
     ports:

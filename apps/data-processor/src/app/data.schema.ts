@@ -1,9 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
-import { ObjectId } from 'mongodb';
+import { HydratedDocument, ObjectId } from 'mongoose';
 
 export abstract class ObjectIdSchema {
-  @Prop()
+  @Prop({auto:"uuid"})
   readonly _id: ObjectId;
 }
 
