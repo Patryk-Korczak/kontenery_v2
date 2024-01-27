@@ -12,10 +12,10 @@ import {ClientsModule, Transport} from '@nestjs/microservices';
       options: {
         client: {
           clientId: 'data-validator',
-          brokers: ['localhost:29092'],
+          brokers: ['localhost:9011'],
         },
-        consumer: {
-          groupId: 'data-validators',
+        producer: {
+          allowAutoTopicCreation: true,
         },
       },
     },

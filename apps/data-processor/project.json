@@ -1,0 +1,53 @@
+{
+  "name": "data-processor",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/data-processor/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/data-processor",
+        "main": "apps/data-processor/src/main.ts",
+        "tsConfig": "apps/data-processor/tsconfig.app.json",
+        "assets": ["apps/data-processor/src/assets"],
+        "webpackConfig": "apps/data-processor/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "data-processor:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "data-processor:build:development"
+        },
+        "production": {
+          "buildTarget": "data-processor:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/data-processor/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

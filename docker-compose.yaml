@@ -1,6 +1,11 @@
 version: '3.8'
 
 services:
+  mock-producer:
+    build:
+      context: dist/apps/device-mock-producer
+    environment:
+      - SLEEP_TIME=10
   kafka:
     image: docker.io/bitnami/kafka:3.5
     ports:

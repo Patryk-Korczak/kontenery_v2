@@ -15,7 +15,7 @@
         "bundle": true,
         "main": "apps/device-mock-producer/src/main.ts",
         "tsConfig": "apps/device-mock-producer/tsconfig.app.json",
-        "assets": ["apps/device-mock-producer/src/assets"],
+        "assets": ["apps/device-mock-producer/Dockerfile","apps/device-mock-producer/run.sh"],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
