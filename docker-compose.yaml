@@ -9,6 +9,7 @@ services:
 
   dashboard:
     ports:
+    aab
       - "80:80"
     build:
       context: dist/apps/dashboard
